@@ -8,7 +8,7 @@ files.
 Usage
 =====
 
-```./download.py 1796```
+```./extremedownload.py 1796```
 
 This will download the album "LEGEND" (XTS016) into the folder
 ```XTS016 - LEGEND```.
