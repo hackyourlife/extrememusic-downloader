@@ -57,6 +57,7 @@ if __name__ == "__main__":
 			suffix = (" (%s)" % version) \
 					if version != "Full Version" else ""
 			filename = "%s %s%s" % (no, title, suffix)
+			filename = filename.replace("/", "-")
 			print(filename)
 			retrieve(preview, "%s/%s.mp3" % \
 					(output_directory, filename))

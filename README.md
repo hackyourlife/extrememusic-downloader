@@ -2,7 +2,7 @@ extrememusic downloader
 =======================
 
 This tool allows you to download any album from
-[extrememusic](https://www.extrememusic.com). But you only get 192kbps mp3
+[extrememusic](https://www.extrememusic.com). But you only get 128-192kbps mp3
 files.
 
 Usage
