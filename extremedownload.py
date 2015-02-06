@@ -52,14 +52,20 @@ if __name__ == "__main__":
 		for track in tracks:
 			version = track["version_type"]
 			no = track["track_sound_no"]
-			title = track["title"]
+			title = track["title"].strip()
 			preview = track["assets"]["audio"]["preview_url"]
 			suffix = (" (%s)" % version) \
 					if version != "Full Version" else ""
 			filename = "%s %s%s" % (no, title, suffix)
 			filename = filename.replace("/", "-")
 			print(filename)
-			retrieve(preview, "%s/%s.mp3" % \
-					(output_directory, filename))
+			try:
+				retrieve(preview, "%s/%s.mp3" % \
+						(output_directory, filename))
+			except urllib.error.HTTPError as e:
+				print("%d @ URL: '%s'" % (e.code, preview))
+				print("reason: '%s'" % e.reason)
+				if e.code != 404:
+					raise e
 	except KeyboardInterrupt:
 		print("download cancelled")
