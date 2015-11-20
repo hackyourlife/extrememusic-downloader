@@ -33,11 +33,17 @@ def get_extreme_env(url):
 def get_album(album_id, extreme_env):
 	return api_call("albums/%s" % album_id, extreme_env)
 
+def print_usage():
+	print("usage: %s album-id" % sys.argv[0])
+	sys.exit(1)
+
 if __name__ == "__main__":
 	if len(sys.argv) != 2:
-		print("usage: %s album-id" % sys.argv[0])
-		sys.exit(1)
-	album_id = sys.argv[1]
+		print_usage()
+	try:
+		album_id = int(sys.argv[1])
+	except:
+		print_usage()
 	print("ripping album id %s" % album_id)
 	extreme_env = get_extreme_env("https://www.extrememusic.com")
 	album = get_album(album_id, extreme_env)
