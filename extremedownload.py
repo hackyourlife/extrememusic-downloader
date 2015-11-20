@@ -9,7 +9,7 @@ import urllib.request
 
 def get_page(url):
 	f = urllib.request.urlopen(url)
-	return f.readall().decode("utf-8")
+	return f.read().decode("utf-8")
 
 def retrieve(url, filename):
 	urllib.request.urlretrieve(url, filename)
@@ -22,7 +22,7 @@ def api_call(method, extreme_env):
 	authtoken = extreme_env["API_AUTH"]
 	request = urllib.request.Request(url, headers={"X-API-Auth": authtoken})
 	f = urllib.request.urlopen(request)
-	return json.loads(f.readall().decode("utf-8"))
+	return json.loads(f.read().decode("utf-8"))
 
 def get_extreme_env(url):
 	page = get_page(url)
