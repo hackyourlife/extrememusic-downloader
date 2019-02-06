@@ -141,7 +141,7 @@ def download_playlist(playlist_id, extreme_env):
 def main():
 	"""The main progamm"""
 	args = parse_arguments()
-	extreme_env = get_extreme_env("https://www.extrememusic.com")
+	extreme_env = get_extreme_env("https://classic.extrememusic.com")
 	if args.playlist:
 		download_playlist(args.id, extreme_env)
 	else:
